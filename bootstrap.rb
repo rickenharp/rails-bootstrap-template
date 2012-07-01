@@ -7,6 +7,15 @@ git :init
 git :add => "."
 git :commit => "-a -m 'Initial commit'"
 
+# pry
+
+gem_group :development do
+  gem "pry-rails"
+end
+run "bundle install"
+git :add => "."
+git :commit => "-a -m 'Use pry instead of irb'"
+
 # rspec
 
 gem_group :development, :test do
