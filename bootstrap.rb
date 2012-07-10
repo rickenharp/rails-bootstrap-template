@@ -1,3 +1,4 @@
+gem "haml-rails"
 run "rm public/index.html"
 generate(:controller, "welcome", "index")
 route "root :to => 'welcome#index'"
@@ -39,7 +40,6 @@ git :commit => "-a -m 'Add cucumber'"
 
 # compass & bootstrap
 
-gem "haml-rails"
 gem_group :assets do
   gem "compass-rails"
   gem "compass_twitter_bootstrap"
