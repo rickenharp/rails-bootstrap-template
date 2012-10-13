@@ -1,8 +1,4 @@
 gem "haml-rails"
-run "rm public/index.html"
-generate(:controller, "welcome", "index")
-route "root :to => 'welcome#index'"
-rake("db:migrate")
  
 git :init
 git :add => "."
@@ -16,6 +12,15 @@ end
 run "bundle install"
 git :add => "."
 git :commit => "-a -m 'Use pry instead of irb'"
+
+# factory_girl
+
+gem_group :development, :test do
+  gem "factory_girl_rails"
+end
+run "bundle install"
+git :add => "."
+git :commit => "-a -m 'Add factory_girl'"
 
 # rspec
 
@@ -91,7 +96,7 @@ File.open('app/views/layouts/_nav.html.haml', 'w') do |f|
         %li
           = link_to 'Link', '#'
         %li
-          = link_to 'Another LInk', '#'
+          = link_to 'Another Link', '#'
       %ul{ :class => "nav pull-right"}
         %li
           = link_to 'Right Link', '#'
@@ -100,3 +105,11 @@ end
 
 git :add => "."
 git :commit => "-a -m 'Add compass and bootstrap'"
+
+run "rm public/index.html"
+generate(:controller, "welcome", "index")
+route "root :to => 'welcome#index'"
+rake("db:migrate")
+
+git :add => "."
+git :commit => "-a -m 'Create welcome controller'"
